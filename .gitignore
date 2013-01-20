@@ -37,4 +37,4 @@ nosetests.xml
 # Exclude the Project Euler solutions
 [0123456789][0123456789][0123456789].py
 *.txt
-idea/*
+.idea/
