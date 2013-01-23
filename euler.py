@@ -2,14 +2,14 @@
 from math import sqrt, factorial
 
 # a range that works for long values
-def bigRange(start, stop, step = 1):
+def bigRange(start, stop, step=1):
     x = start
     while x < stop:
         yield x
         x = x + step
 
 # a fast reverse range that works for long values
-def reverseBigRange(start, stop = 0, step = 1):
+def reverseBigRange(start, stop=0, step=1):
     x = start
     while x > stop:
         yield x
@@ -23,7 +23,7 @@ def fibonacci():
         a, b = b, a + b
 
 # a generator for prime numbers, keeps going until you stop pulling
-def generatePrimes(start = 2):
+def generatePrimes(start=2):
     current = start
     if current == 2 or isPrime(current):
         yield current # 2
@@ -36,9 +36,9 @@ def generatePrimes(start = 2):
 
 # a prime number sieve using the Eratostenes algorithm
 def getPrimesTo(n):
-    primes = set(xrange(3,n, 2))
+    primes = set(xrange(3, n, 2))
     primes.add(2)
-    for p in xrange(3, n/2, 2):
+    for p in xrange(3, n / 2, 2):
         if p in primes:
             for multiple in getMultiplesTo(p, n):
                 primes.discard(multiple)
@@ -57,7 +57,7 @@ def generateTriangleNumbers():
 
 # determines if x is a triangle number
 def isTriangle(x):
-    n = (sqrt(8*x+1)-1)/2.0
+    n = (sqrt(8 * x + 1) - 1) / 2.0
     return n == int(n)
 
 # a generator for pentagonal numbers
@@ -66,14 +66,14 @@ def isTriangle(x):
 def generatePentagonalNumbers():
     n = 1
     while True:
-        pentagonal = (n*(3*n-1))/2
+        pentagonal = (n * (3 * n - 1)) / 2
         yield pentagonal
         n += 1
 
 # determines if x is a pentagonal number
 # Pn = (n(3n-1))/2
 def isPentagonal(x):
-    n = (sqrt(24*x+1)+1)/6.0
+    n = (sqrt(24 * x + 1) + 1) / 6.0
     return n == int(n)
 
 # a generator for pentagonal numbers
@@ -82,13 +82,13 @@ def isPentagonal(x):
 def generateHexagonalNumbers():
     n = 1
     while True:
-        hexagonal = n*(2*n - 1)
+        hexagonal = n * (2 * n - 1)
         yield hexagonal
         n += 1
 
 # determines if x is a hexagonal number
 def isHexagonal(x):
-    n = (sqrt(8*x+1)+1)/4.0
+    n = (sqrt(8 * x + 1) + 1) / 4.0
     return n == int(n)
 
 # generates an iterative sequence starting at start
@@ -100,7 +100,7 @@ def getIterativeSequence(start):
     while current > 1:
         sequence.append(current)
         if isEven(current): current /= 2
-        else: current = 3*current + 1
+        else: current = 3 * current + 1
     sequence.append(current)
 
     return sequence
@@ -132,10 +132,11 @@ def isPrime(n):
 
 # checks if a number (n) is pandigital
 def isPandigital(n):
+    if n < 0 : return False
     set_n = set(int(x) for x in str(n))
     if len(set_n) != len(str(n)): return False
     c = len(set_n)
-    for digit in xrange(1,c+1):
+    for digit in xrange(1, c + 1):
         if digit not in set_n: return False
     return True
 
@@ -146,6 +147,7 @@ def isPerfect(n):
 # determines if a number is deficient (sum of proper divisors < number)
 def isDeficient(n):
     return sum(getProperDivisors(n)) < n
+
 
 def isPalindromic(n):
     n_str = str(n)
@@ -188,7 +190,7 @@ def getProperDivisors(n):
 
 # gets the multiples of n to to
 def getMultiplesTo(n, to):
-    multiple = n+n
+    multiple = n + n
     while multiple < to:
         yield multiple
         multiple += n
@@ -196,7 +198,7 @@ def getMultiplesTo(n, to):
 # gets the prime factors for a number in a list
 # the list will look like 528 => [2, 2, 2, 2, 3, 11]
 def getPrimeFactors(n):
-    primeFactors = []    
+    primeFactors = []
     current = n
     while not isPrime(current):
         for prime in generatePrimes():
@@ -239,14 +241,14 @@ def getFactorCount(n):
 # returns the sum of numbers from 1 to n
 # 1+2+...+n
 def sumTo(n):
-    return (n**2+n)/2
+    return (n ** 2 + n) / 2
 
 # returns the sum of the squares from 1 to n
 # 1**2+2**2+...+n**2
 def sumOfSquaresTo(n):
-    return int(n**3/3.0+n**2/2.0+n/6.0)
+    return int(n ** 3 / 3.0 + n ** 2 / 2.0 + n / 6.0)
 
 # gets the number of combinations of size k
 # from a group of size n
 def combinations(n, k):
-    return factorial(n)/(factorial(k)*factorial(n-k))
+    return factorial(n) / (factorial(k) * factorial(n - k))

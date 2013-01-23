@@ -169,3 +169,75 @@ class testIsEven(unittest.TestCase):
         self.assertTrue(euler.isEven(4))
         self.assertTrue(euler.isEven(998))
         self.assertTrue(euler.isEven(1024))
+
+class testIsOdd(unittest.TestCase):
+    def testFailure(self):
+        self.assertFalse(euler.isOdd(0))
+        self.assertFalse(euler.isOdd(2))
+        self.assertFalse(euler.isOdd(4))
+        self.assertFalse(euler.isOdd(6))
+        self.assertFalse(euler.isOdd(346656))
+        self.assertFalse(euler.isOdd(3456))
+
+    def testSuccess(self):
+        self.assertTrue(euler.isOdd(1))
+        self.assertTrue(euler.isOdd(3))
+        self.assertTrue(euler.isOdd(5))
+        self.assertTrue(euler.isOdd(99))
+        self.assertTrue(euler.isOdd(12343))
+        self.assertTrue(euler.isOdd(141))
+        self.assertTrue(euler.isOdd(3447))
+
+class testIsPrime(unittest.TestCase):
+    def testFailure(self):
+        self.assertFalse(euler.isPrime(0))
+        self.assertFalse(euler.isPrime(1))
+        self.assertFalse(euler.isPrime(4))
+        self.assertFalse(euler.isPrime(9))
+        self.assertFalse(euler.isPrime(15))
+
+    def testSuccess(self):
+        self.assertTrue(euler.isPrime(2))
+        self.assertTrue(euler.isPrime(3))
+        self.assertTrue(euler.isPrime(5))
+        self.assertTrue(euler.isPrime(7))
+        self.assertTrue(euler.isPrime(17))
+        self.assertTrue(euler.isPrime(617))
+
+class testIsPandigital(unittest.TestCase):
+    def testFailure(self):
+        self.assertFalse(euler.isPandigital(0))
+        self.assertFalse(euler.isPandigital(2))
+        self.assertFalse(euler.isPandigital(-1))
+        self.assertFalse(euler.isPandigital(11))
+        self.assertFalse(euler.isPandigital(13))
+        self.assertFalse(euler.isPandigital((3988)))
+        self.assertFalse(euler.isPandigital(535))
+
+    def testSuccess(self):
+        self.assertTrue(euler.isPandigital(1))
+        self.assertTrue(euler.isPandigital(12))
+        self.assertTrue(euler.isPandigital(213))
+        self.assertTrue(euler.isPandigital(321))
+        self.assertTrue(euler.isPandigital(4312))
+        self.assertTrue(euler.isPandigital(7456321))
+        self.assertTrue(euler.isPandigital(987561243))
+
+class testIsPerfect(unittest.TestCase):
+    def testFailure(self):
+        self.assertFalse(euler.isPerfect(1))
+        self.assertFalse(euler.isPerfect(2))
+        self.assertFalse(euler.isPerfect(3))
+        self.assertFalse(euler.isPerfect(4))
+        self.assertFalse(euler.isPerfect(5))
+        self.assertFalse(euler.isPerfect(7))
+        self.assertFalse(euler.isPerfect(8))
+        self.assertFalse(euler.isPerfect(30))
+        self.assertFalse(euler.isPerfect(235))
+        self.assertFalse(euler.isPerfect(9888))
+
+    def testSuccess(self):
+        self.assertTrue(euler.isPerfect(6))
+        self.assertTrue(euler.isPerfect(28))
+        self.assertTrue(euler.isPerfect(496))
+        self.assertTrue(euler.isPerfect(8128))
